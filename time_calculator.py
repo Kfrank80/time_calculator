@@ -1,5 +1,5 @@
 
-def add_time(start_time, duration_time, starting_day=None):
+def add_time(start_time: str, duration_time: str, starting_day: str = None) -> str:
     """
 This function add the duration time to the start time and return the result.
     :param start_time: a start time in the 12-hour clock format (ending in AM or PM)
@@ -7,6 +7,7 @@ This function add the duration time to the start time and return the result.
     :param starting_day: (optional) a starting day of the week, case insensitive
     """
     result = []
+    ret: str = ""
     # Preparar una lista con cada elemento por separado
     # para poder trabajar con ellos mas comodamente luego
     start_time_list = str(start_time).replace(':', ' ').split()
@@ -61,8 +62,10 @@ This function add the duration time to the start time and return the result.
     # result[3] -> Hours
     # result[4] -> n Days
     if result[4] == 0:
-        print(f'{str(result[3])}:{str(result[2]) if (len(str(result[2])) > 1) else (str(0) + str(result[2]))} {result[1]}{str("") if starting_day is None else str(f", {result[0]}")}')
+       ret = f'{str(result[3])}:{str(result[2]) if (len(str(result[2])) > 1) else (str(0) + str(result[2]))} {result[1]}{str("") if starting_day is None else str(f", {result[0]}")}'
     elif result[4] == 1:
-        print(f'{str(result[3])}:{str(result[2]) if (len(str(result[2])) > 1) else (str(0) + str(result[2]))} {result[1]}{str("") if starting_day is None else str(f", {result[0]}")} {str(f"(next day)")}')
+        ret = f'{str(result[3])}:{str(result[2]) if (len(str(result[2])) > 1) else (str(0) + str(result[2]))} {result[1]}{str("") if starting_day is None else str(f", {result[0]}")} {str(f"(next day)")}'
     else:
-        print(f'{str(result[3])}:{str(result[2]) if (len(str(result[2])) > 1) else (str(0) + str(result[2]))} {result[1]}{str("") if starting_day is None else str(f", {result[0]}")} {str(f"({str(result[4])} days later)")}')
+        ret = f'{str(result[3])}:{str(result[2]) if (len(str(result[2])) > 1) else (str(0) + str(result[2]))} {result[1]}{str("") if starting_day is None else str(f", {result[0]}")} {str(f"({str(result[4])} days later)")}'
+    print(ret)
+    return ret
