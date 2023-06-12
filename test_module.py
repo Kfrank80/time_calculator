@@ -25,5 +25,3 @@ class TestAddTime:
     def test_7(self):
         assert add_time("6:30 PM", "205:12") == "7:42 AM (9 days later)"
 
-
-
