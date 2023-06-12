@@ -1,4 +1,3 @@
-
 def add_time(start_time: str, duration_time: str, starting_day: str = None) -> str:
     """
 This function add the duration time to the start time and return the result.
